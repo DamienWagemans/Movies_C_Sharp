@@ -8,5 +8,18 @@ namespace DAL
 {
 	class Comment
 	{
+		public int ID { set; get; }
+		public string Content { get; set; }
+		public int Rate { get; set;}
+
+		public Comment(int id, string content, int rate)
+		{
+			ID = id;
+			Content = content;
+			Rate = rate;
+		}
+
+		public virtual Film Film { get; set; }
+
 	}
 }

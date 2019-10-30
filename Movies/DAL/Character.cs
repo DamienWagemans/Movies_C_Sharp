@@ -8,5 +8,16 @@ namespace DAL
 {
 	class Character
 	{
+		public int ID { get; set; }
+		public string Charactername { set; get; }
+
+		public Character(int id, string charactername)
+		{
+			ID = id;
+			Charactername = charactername;
+		}
+
+		public virtual ICollection<Actor> Actors { get; set; }
+
 	}
 }
