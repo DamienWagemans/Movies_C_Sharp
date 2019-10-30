@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-	class Character
+	public class Character
 	{
 		public int ID { get; set; }
 		public string Charactername { set; get; }
@@ -17,7 +17,7 @@ namespace DAL
 			Charactername = charactername;
 		}
 
-		public virtual ICollection<Actor> Actors { get; set; }
+		public virtual ICollection<CharacterActor> CharactersActors { get; set; }
 
 	}
 }

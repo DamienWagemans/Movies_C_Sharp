@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-	class Movies_Context : DbContext
+	public class Movies_Context : DbContext
 	{
 		public Movies_Context(): base(@"Server=localhost\SQLEXPRESS;Database=movies_C_SHARP;Trusted_Connection=True;") { }
 
@@ -17,8 +17,6 @@ namespace DAL
 		public DbSet<Character> TabCharacters { get; set; }
 		public DbSet<Comment> TabComments { get; set; }
 		public DbSet<CharacterActor> TabCharacterActors { get; set; }
-
-
 
 	}
 }

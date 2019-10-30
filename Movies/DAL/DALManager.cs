@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-	class DALManager : IDisposable
+	public class DALManager : IDisposable
 	{
 		private readonly Movies_Context _movies_context;
 

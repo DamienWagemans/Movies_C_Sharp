@@ -1,20 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
-	class CharacterActor
+	public class CharacterActor
 	{
-		public int ID_actor { set; get; }
-		public int ID_character { set; get; }
+		[Key, Column(Order = 0)]
+		public int ID_ACTOR { set; get; }
+		
+		[Key, Column(Order = 1)]
+		public int ID_CHARACTER { set; get; }
 
 		public CharacterActor(int idActor, int idCharacter)
 		{
-			ID_actor = idActor;
-			ID_character = idCharacter;
+			ID_ACTOR = idActor;
+			ID_ACTOR = idCharacter;
 		}
 
 
