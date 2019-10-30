@@ -17,6 +17,12 @@ namespace DAL
 			Name = name;
 		}
 
+		public Actor()
+		{
+			ID = 0;
+			Name = "temp";
+		}
+
 		public virtual ICollection<Character> CharacterActor { get; set; }
 
 	}

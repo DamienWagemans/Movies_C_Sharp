@@ -19,7 +19,7 @@ namespace DAL
 			Rate = rate;
 		}
 
-		public virtual Film Film { get; set; }
+		public virtual Movies Film { get; set; }
 
 	}
 }

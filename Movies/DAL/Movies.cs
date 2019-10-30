@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-	class Film
+	class Movies
 	{
 
 		public int ID { get; set; }
@@ -23,7 +23,7 @@ namespace DAL
 		public virtual ICollection<Character> Characters { get; set; }
 		public virtual ICollection<Comment> Comments { get; set; }
 
-		public Film(int id, string title, DateTime realeasedate, int voteaverage, int runtime, string posterpath)
+		public Movies(int id, string title, DateTime realeasedate, int voteaverage, int runtime, string posterpath)
 		{
 			ID = id;
 			Title = title;
