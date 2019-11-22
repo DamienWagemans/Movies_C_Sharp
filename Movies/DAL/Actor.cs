@@ -1,30 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
-	public class Actor
+	public class Actor: IComparable<Actor>
 	{
-		public int ID { get; set; }
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		public int ActorID { get; set; }
 		public string Name { get; set; }
+		public virtual ICollection<CharacterActor> CharacterActors { get; set; }
+		public virtual ICollection<Movie> Movies { get; set; }
 
-		public Actor(int id, string name)
+		public Actor(string text) // Constructeur d’objet Actor
 		{
-			ID = id;
-			Name = name;
+			Name = text;
+			CharacterActors = new List<CharacterActor>();
+			Movies = new List<Movie>();
 		}
+
 
 		public Actor()
 		{
-			ID = 0;
 			Name = "temp";
+			CharacterActors = new List<CharacterActor>();
+			Movies = new List<Movie>();
+
 		}
 
-		public virtual ICollection<CharacterActor> CharacterActor { get; set; }
-		public virtual ICollection<Movies>Movies { get; set; }
 
+
+		public int CompareTo(Actor other)
+		{
+			if (this.ActorID == other.ActorID)
+			{
+				if (this.Name == other.Name)
+				{
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+			}
+			else
+			{
+				return 0;
+			}
+
+		}
 	}
 }

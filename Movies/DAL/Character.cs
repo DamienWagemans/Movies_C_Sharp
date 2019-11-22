@@ -8,16 +8,27 @@ namespace DAL
 {
 	public class Character
 	{
-		public int ID { get; set; }
+		public int CharacterID { get; set; }
 		public string Charactername { set; get; }
 
-		public Character(int id, string charactername)
+		public virtual ICollection<CharacterActor> CharacterActors { get; set; }
+		public Character(string charactername)
 		{
-			ID = id;
 			Charactername = charactername;
+			CharacterActors = new List<CharacterActor>();
 		}
 
-		public virtual ICollection<CharacterActor> CharactersActors { get; set; }
+		public Character()
+		{ 
+			Charactername = null;
+			CharacterActors = new List<CharacterActor>();
+		}
 
+		public override string ToString()
+		{
+			string c;
+			c = ("Character : " + this.CharacterID + " name : " + this.Charactername);
+			return c;
+		}
 	}
 }

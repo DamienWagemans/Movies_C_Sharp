@@ -12,11 +12,13 @@ namespace DAL
 		public Movies_Context(): base(@"Server=localhost\SQLEXPRESS;Database=movies_C_SHARP;Trusted_Connection=True;") { }
 
 
-		public DbSet<Movies> TabMovies { get; set; }
+		public DbSet<Movie> TabMovies { get; set; }
 		public DbSet<Actor> TabActor { get; set; }
 		public DbSet<Character> TabCharacters { get; set; }
 		public DbSet<Comment> TabComments { get; set; }
 		public DbSet<CharacterActor> TabCharacterActors { get; set; }
+
+		
 
 	}
 }

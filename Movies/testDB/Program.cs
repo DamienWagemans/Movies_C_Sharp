@@ -13,12 +13,10 @@ namespace testDB
 		{
 			using (var manager = new DALManager())
 			{
-				var movies = new Movies(1, "starwars","12/12/12" , 4,120,"google.be");
-
-				manager.addMovie(movies);
-
+				FilmParser.Load_X_film(manager, "C:/Users/damien/Desktop/movies_v2.txt",10);
+				Console.ReadLine();
 			}
-			Console.WriteLine("Demo completed.");
+			Console.WriteLine("FIN");
 
 		}
 	}

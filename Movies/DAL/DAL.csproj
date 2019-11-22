@@ -56,7 +56,8 @@
     <Compile Include="CharacterActor.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="DALManager.cs" />
-    <Compile Include="Movies.cs" />
+    <Compile Include="FilmParser.cs" />
+    <Compile Include="Movie.cs" />
     <Compile Include="Movies_Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
