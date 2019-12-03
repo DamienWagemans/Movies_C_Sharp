@@ -21,7 +21,6 @@ namespace DAL
 
 		public virtual Actor Actor { set; get; }
 		public virtual Character Character { set; get; }
-		
 		public virtual Movie Movie { set; get; }
 
 		public CharacterActor(int idActor, int idCharacter, int idFilm)

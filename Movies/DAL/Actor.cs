@@ -13,13 +13,17 @@ namespace DAL
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int ActorID { get; set; }
+		public string Firstname { get; set; }
 		public string Name { get; set; }
 		public virtual ICollection<CharacterActor> CharacterActors { get; set; }
 		public virtual ICollection<Movie> Movies { get; set; }
 
 		public Actor(string text) // Constructeur d’objet Actor
 		{
-			Name = text;
+			
+			string [] actor_details = text.Split(' ');
+			Firstname = actor_details[0];
+			Name = actor_details[1];
 			CharacterActors = new List<CharacterActor>();
 			Movies = new List<Movie>();
 		}
@@ -28,9 +32,25 @@ namespace DAL
 		public Actor()
 		{
 			Name = "temp";
+			Firstname = "temp";
 			CharacterActors = new List<CharacterActor>();
 			Movies = new List<Movie>();
 
+		}
+
+		public void add_name_firstname(string text)
+		{
+			string[] actor_details = text.Split(' ');
+			this.Firstname
+				= actor_details[0];
+			if(actor_details.Length > 1)
+			{
+				this.Name = actor_details[1];
+			}
+			else
+			{
+				this.Firstname = "Neant";
+			}
 		}
 
 
@@ -41,17 +61,13 @@ namespace DAL
 			{
 				if (this.Name == other.Name)
 				{
-					return 1;
-				}
-				else
-				{
-					return 0;
+					if (this.Firstname == other.Firstname)
+					{
+						return 1;
+					}
 				}
 			}
-			else
-			{
-				return 0;
-			}
+			return 0;
 
 		}
 	}

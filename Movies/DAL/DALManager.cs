@@ -14,6 +14,13 @@ namespace DAL
 		{
 			_movies_context = new Movies_Context();
 		}
+		public void Dispose()
+		{
+			_movies_context?.Dispose();
+		}
+
+
+		#region ADD to DB
 
 		public void addMovie (Movie m)
 		{
@@ -44,64 +51,125 @@ namespace DAL
 			_movies_context.TabComments.Add(c);
 			_movies_context.SaveChanges();
 		}
+		#endregion
 
-		public Actor getActor_by_ID(int id)
+		#region Film
+
+		//Recherche un film par rapport à son Id.
+		public Movie GetMovieById(int id)
 		{
-			Actor a;
-			a = _movies_context.TabActor.Find(id);
-			return a;
+			return _movies_context.TabMovies.Find(id);
 		}
 
-		public Movie getMovie_by_ID(int id)
+		public ICollection<Movie> GetListFilmsByIdActor(int idActor)
 		{
-			Movie m;
-			m = _movies_context.TabMovies.Find(id);
-			return m;
+			var a = GetActorById(idActor);
+			if (a == null)
+				return null;
+			return a.Movies;
 		}
 
-		//public Character GetCharacter_by_name(string name)
-		//{
-		//	using (var context = new Movies_Context())
-		//	{
-		//		var query = from c in context.TabCharacters
-		//			where c.Charactername == name
-		//			select c;
+		public ICollection<Movie> FindXFilmByPartialActorName(string name, int nbElm)
+		{
+			var listFilm = new List<Movie>();
 
-		//		var Character = query.FirstOrDefault<Character>();
-		//		return Character;
-		//	}
-		//}
+			var actor = _movies_context.TabActor.FirstOrDefault(x => x.Name.Contains(name));
 
+			if (actor == null)
+				return null;
+			int i = 0;
+			foreach (Movie m in actor.Movies)
+			{
+				if (i == nbElm)
+					break;
+				i++;
+				listFilm.Add(m);
+			}
+			return listFilm;
+		}
+
+		public ICollection<Movie> Get10FavoriteFilms()
+		{
+			return _movies_context.TabMovies
+						.OrderByDescending(f => f.Voteaverage)
+					   .Take<Movie>(10).ToList();
+		}
+
+
+		public ICollection<Movie> GetXFilms(int nbr)
+		{
+			return _movies_context.TabMovies.Take<Movie>(nbr).ToList();
+		}
+
+		public ICollection<Movie> GetXFilmsFromY(int X, int Y)
+		{
+			return _movies_context.TabMovies.Skip<Movie>(Y).Take<Movie>(X).ToList();
+		}
+		#endregion
+
+		#region Actor
+
+		//Recherche un actor par rapport à son Id.
+		public Actor GetActorById(int id)
+		{
+			return _movies_context.TabActor.Find(id);
+		}
+
+		#endregion
+
+		#region Character
+
+		//Recherche d'un character par son nom.
 		public Character GetCharacter_by_name(string name)
 		{
 			var character = _movies_context.TabCharacters.SingleOrDefault(x => x.Charactername == name);
 			return character;
 		}
 
-
-		//public Movie getXMovies(int x)
-		//{
-		//	using (var context = new Movies_Context())
-		//	{
-		//		var query = from st in context.TabMovies
-		//					select st;
-
-		//		var Movies = query.First<Movie>(5);
-		//		return Movies;
-		//	}
-
-		//}
-
-
-
-		// get5movies
-		//get actor by id
-		//utiliser linq  (query implement IQueryable -> .first / .skip(x) ./take(x) .tolist()
-		//faire une fonction qui renvoit n film a aprtir du Nieme
-
-		public void Dispose()
+		public Character GetCharacterById(int id)
 		{
-			_movies_context?.Dispose();
+			return _movies_context.TabCharacters.Find(id);
 		}
+
+		public ICollection<Character> GetCharacterByIdActorAndIdFilm(int actorId, int filmId)
+		{
+			var listCharacter = new List<Character>();
+
+			IQueryable<Character> productCharacter = from ca in _movies_context.TabCharacterActors
+													 where ca.ActorID == actorId &&
+														   ca.MovieID == filmId
+													 select ca.Character;
+
+			//verif si y qql chose dans la list
+
+			foreach (Character c in productCharacter)
+				listCharacter.Add(c);
+
+
+			return listCharacter;
+		}
+
+		#endregion
+
+		#region Comment
+
+		public Boolean InsertCommentOnActorId(int actorId, Comment comment)
+		{
+			var actor = _movies_context.TabActor.Find(actorId);
+
+			if (actor == null)
+				return false;
+
+			comment.Actor = actor;
+			_movies_context.TabComments.Add(comment);
+			_movies_context.SaveChanges();
+
+			return true;
+		}
+
+		#endregion
+
+
+
 	}
 }

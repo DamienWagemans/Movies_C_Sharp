@@ -48,7 +48,7 @@ namespace DAL
 			m.Posterpath = filmdetailwords[9];
 
 			//verifier si il existe déja dans la BD
-			if(dm.getMovie_by_ID(m.MovieID)== null)
+			if(dm.GetMovieById(m.MovieID)== null)
 			{ 
 
 				// Initialisation des champs détails du film
@@ -70,8 +70,8 @@ namespace DAL
 
 							//cretion de l'acteur et/ou verif si l'acteur existe deja
 							a.ActorID = Int32.Parse(acteurs_details[0]);
-							a.Name = acteurs_details[1];
-							var tmpActor = dm.getActor_by_ID(a.ActorID);
+							a.add_name_firstname(acteurs_details[1]);
+							var tmpActor = dm.GetActorById(a.ActorID);
 							if (tmpActor != null)
 							{
 								a = tmpActor;
@@ -83,18 +83,22 @@ namespace DAL
 							m.Actors.Add(a);
 
 
-							Character c = new Character (acteurs_details[2]);
-							var tmpCharacter = dm.GetCharacter_by_name(c.Charactername);
-							if (tmpCharacter != null)
-							{ 
-								c = tmpCharacter;
+							//decomposition des différentes caractères pour un meme acteur
+							characterdetail = acteurs_details[2].Split('/');
+
+							//creation des différents characteres pour un meme acteur
+							foreach (string charac in characterdetail)
+							{
+								Character c = new Character(charac);
+								var tmpCharacter = dm.GetCharacter_by_name(c.Charactername);
+								if (tmpCharacter != null)
+								{
+									c = tmpCharacter;
+								}
+								CharacterActor CA = new CharacterActor(m, c, a);
+
+								dm.addCharacterActor(CA);
 							}
-
-
-							CharacterActor CA = new CharacterActor(m,c,a);
-							
-							dm.addCharacterActor(CA);
-
 						}
 					}
 				}
