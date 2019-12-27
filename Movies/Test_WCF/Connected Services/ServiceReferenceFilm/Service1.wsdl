@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:59135/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:59135/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:59135/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DTO" />
-      <xsd:import schemaLocation="http://localhost:59135/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCF_App" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetMovieByIdActor_InputMessage">
@@ -14,30 +13,60 @@
   <wsdl:message name="IService1_GetMovieByIdActor_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMovieByIdActorResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="IService1_GetFavoriteFilms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavoriteFilms" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  <wsdl:message name="IService1_GetFavoriteFilms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavoriteFilmsResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="IService1_GetCharacterByIdActorAndIdFilm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterByIdActorAndIdFilm" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="IService1_GetCharacterByIdActorAndIdFilm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterByIdActorAndIdFilmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindXMoviesByPartialActorName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindXMoviesByPartialActorName" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindXMoviesByPartialActorName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindXMoviesByPartialActorNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCommentOnActorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommentOnActorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCommentOnActorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommentOnActorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetActorById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetActorById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorByIdResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetMovieByIdActor">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMovieByIdActor" message="tns:IService1_GetMovieByIdActor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetMovieByIdActorResponse" message="tns:IService1_GetMovieByIdActor_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    <wsdl:operation name="GetFavoriteFilms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFavoriteFilms" message="tns:IService1_GetFavoriteFilms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetFavoriteFilmsResponse" message="tns:IService1_GetFavoriteFilms_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="GetCharacterByIdActorAndIdFilm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilm" message="tns:IService1_GetCharacterByIdActorAndIdFilm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilmResponse" message="tns:IService1_GetCharacterByIdActorAndIdFilm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindXMoviesByPartialActorName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindXMoviesByPartialActorName" message="tns:IService1_FindXMoviesByPartialActorName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindXMoviesByPartialActorNameResponse" message="tns:IService1_FindXMoviesByPartialActorName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommentOnActorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCommentOnActorId" message="tns:IService1_InsertCommentOnActorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCommentOnActorIdResponse" message="tns:IService1_InsertCommentOnActorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActorById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetActorById" message="tns:IService1_GetActorById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetActorByIdResponse" message="tns:IService1_GetActorById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -51,8 +80,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+    <wsdl:operation name="GetFavoriteFilms">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetFavoriteFilms" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -60,8 +89,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+    <wsdl:operation name="GetCharacterByIdActorAndIdFilm">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindXMoviesByPartialActorName">
+      <soap:operation soapAction="http://tempuri.org/IService1/FindXMoviesByPartialActorName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommentOnActorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertCommentOnActorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetActorById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

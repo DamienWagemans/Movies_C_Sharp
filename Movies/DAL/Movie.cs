@@ -21,7 +21,6 @@ namespace DAL
 		public string Posterpath { get; set; }
 
 		public virtual ICollection<Actor> Actors { get; set; }
-		public virtual ICollection<Comment> Comments { get; set; }
 
 		public Movie(int id, string title, DateTime realeasedate, float voteaverage, int runtime, string posterpath)
 		{
@@ -31,7 +30,6 @@ namespace DAL
 			Voteaverage = voteaverage;
 			Runtime = runtime;
 			Posterpath = posterpath;
-			Comments = new List<Comment>();
 			Actors = new List<Actor>();
 
 		}
@@ -44,19 +42,18 @@ namespace DAL
 			Voteaverage = 0;
 			Runtime = 120;
 			Posterpath = "WWW.GOOGLE.COM";
-			Comments = new List<Comment>(); 
 			Actors = new List<Actor>();
 		}
 
 		public override string ToString()
 		{
 			string film;
-			film = "ID :" + MovieID + " / Titre : " + Title + " / Release Date : " + Releasedate;
+			film = "ID :" + MovieID + " / Titre : " + Title + " / Release Date : " + Releasedate + "\n";
 
-			film += "/ Acteurs : ";
+			film += "/ Acteurs : \n";
 			foreach (Actor a in (Actors))
 			{
-				film += "//Nom : " + a.ToString();
+				film += "//" + a.ToString();
 			}
 			return film;
 		}

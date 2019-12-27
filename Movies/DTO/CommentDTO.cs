@@ -7,7 +7,7 @@ namespace DTO
 	public class CommentDTO
 	{
 		public string Content { get; set; }
-		public DateTime Date { get; set; }
+		public DateTime? Date { get; set; }
 
 		private int _rate;
 		public int Rate //De 1 à 5
@@ -30,10 +30,19 @@ namespace DTO
 			Content = "bidon";
 			Rate = 0;
 			Avatar = "bidon";
-			Date = new DateTime(); ;
+			Date = DateTime.Now ;
 		}
 
-		public CommentDTO(string content, int rate, string avatar, DateTime d)
+		public CommentDTO(string content, int rate, string avatar)
+		{
+			Content = content;
+			Rate = rate;
+			Avatar = avatar;
+			Date = DateTime.Now;
+
+		}
+
+		public CommentDTO(string content, int rate, string avatar, DateTime? d)
 		{
 			Content = content;
 			Rate = rate;

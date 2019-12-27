@@ -15,46 +15,61 @@ namespace DAL
 		public int Rate { get; set; }
 		public string Avatar { get; set; }
 		public int ActorId { get; set; }
-		public DateTime Date { get; set; }
-		public virtual Actor actor { get; set; }
+		public DateTime? Date { get; set; }
+		public virtual Actor Actor { get; set; }
 
 		public Comment()
 		{
-			actor = new Actor();
+			Actor = new Actor();
 			CommentId = 0;
 			Content = "null";
 			Rate = 0;
 			Avatar = "John";
 			ActorId = 0;
-			Date = new DateTime();
+			Date = DateTime.Now;
 		}
-		public Comment(string content, int rate, string avatar, DateTime d, Actor a)
+		public Comment(string content, int rate, string avatar, DateTime? d, Actor a)
 		{
 			Content = content;
 			Rate = rate;
 			Avatar = avatar;
 			Date = d;
-			actor = a;
+			Actor = a;
 		}
-		public Comment(string content, int rate, DateTime d)
+		public Comment(string content, int rate, DateTime? d)
 		{
 			Content = content;
 			Rate = rate;
 			Date = d;
+			Avatar = "null";
+			Actor = new Actor();
 		}
-		public Comment(string content, int rate, DateTime d, Actor a)
+
+		public Comment(string content, int rate, string avatar, DateTime? date)
+		{
+			Content = content;
+			Rate = rate;
+			Avatar = avatar;
+			Date = date;
+			Actor = new Actor();
+		}
+		public Comment(string content, int rate, DateTime? d, Actor a)
 		{
 			Content = content;
 			Rate = rate;
 			Date = d;
-			actor = a;
+			Actor = a;
+			Avatar = "null";
 		}
 		public Comment(string content, int rate)
 		{
 			Content = content;
 			Rate = rate;
+			Date = DateTime.Now;
+			Avatar = "null";
+			Actor = new Actor();
+
 		}
-		public virtual Actor Actor { get; set; }
 
 	}
 }

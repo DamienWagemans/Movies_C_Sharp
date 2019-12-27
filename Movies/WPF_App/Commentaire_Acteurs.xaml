@@ -1,0 +1,43 @@
+﻿<Window x:Class="WPF_App.Commentaire_Acteurs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Converter;assembly=Converter"
+        mc:Ignorable="d"
+        Title="Commentaire_Acteurs" Height="450" Width="800">
+    <Window.Resources>
+        <local:Convert_To_Stars x:Key="Convert_To_Stars"/>
+    </Window.Resources>
+    <Grid>
+        <DataGrid ItemsSource="{Binding}" Name="CommentsDataGrid" Height="326"  VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True"  Margin="29,51,386,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding Path=Date}" Header="Date" Width="Auto"/>
+                <DataGridTextColumn  Binding="{Binding Path=Content}" Header="Contenu" Width="Auto"/>
+                <DataGridTemplateColumn Header="Note" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=Rate, Converter={StaticResource Convert_To_Stars}}" 
+                            Height="50" 
+                            Width="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn  Binding="{Binding Path=Avatar}" Header="Avatar" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Insertion commentaire : " HorizontalAlignment="Left" Margin="457,51,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="label_actro_name" Content="XXX" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Width="377" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Note (de 0 à 5) :" HorizontalAlignment="Left" Margin="457,102,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="textbox_note" HorizontalAlignment="Left" Height="20" Margin="457,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" />
+        <TextBox x:Name="textbox_avatar" HorizontalAlignment="Left" Height="20" Margin="457,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" />
+        <TextBox x:Name="textbox_contenu" HorizontalAlignment="Left" Height="20" Margin="457,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" />
+        <Label Content="Avatar :" HorizontalAlignment="Left" Margin="457,177,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Contenu :" HorizontalAlignment="Left" Margin="457,244,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="bouton_valider_commentaire" Content="Ajouter commentaire" HorizontalAlignment="Left" Margin="513,327,0,0" VerticalAlignment="Top" Width="166" Height="27" Click="voir_commentaire_Click"/>
+        <Label x:Name="pagination" Content="1/10" HorizontalAlignment="Left" Margin="176,382,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button x:Name="bouton_precedent" Content="Précedent" HorizontalAlignment="Left" Margin="66,382,0,0" VerticalAlignment="Top" Width="98" Height="27" Click="precedentclick" DragEnter="bouton_precedent_DragEnter"/>
+        <Button x:Name="bouton_suivant" Content="Suivant" HorizontalAlignment="Left" Margin="235,382,0,0" VerticalAlignment="Top" Width="96" Height="27" Click="suivantclick"/>
+
+    </Grid>
+</Window>

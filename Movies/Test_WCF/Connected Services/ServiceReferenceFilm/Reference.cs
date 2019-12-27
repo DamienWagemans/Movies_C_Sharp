@@ -21,17 +21,35 @@ namespace Test_WCF.ServiceReferenceFilm {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieByIdActor", ReplyAction="http://tempuri.org/IService1/GetMovieByIdActorResponse")]
         System.Threading.Tasks.Task<DTO.MovieDTO[]> GetMovieByIdActorAsync(int idActor);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFavoriteFilms", ReplyAction="http://tempuri.org/IService1/GetFavoriteFilmsResponse")]
+        DTO.LightMovieDTO[] GetFavoriteFilms();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFavoriteFilms", ReplyAction="http://tempuri.org/IService1/GetFavoriteFilmsResponse")]
+        System.Threading.Tasks.Task<DTO.LightMovieDTO[]> GetFavoriteFilmsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        WCF_App.CompositeType GetDataUsingDataContract(WCF_App.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilm", ReplyAction="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilmResponse")]
+        DTO.CharacterDTO[] GetCharacterByIdActorAndIdFilm(int actorId, int MovieId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<WCF_App.CompositeType> GetDataUsingDataContractAsync(WCF_App.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilm", ReplyAction="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilmResponse")]
+        System.Threading.Tasks.Task<DTO.CharacterDTO[]> GetCharacterByIdActorAndIdFilmAsync(int actorId, int MovieId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindXMoviesByPartialActorName", ReplyAction="http://tempuri.org/IService1/FindXMoviesByPartialActorNameResponse")]
+        DTO.MovieDTO[] FindXMoviesByPartialActorName(string name, int nbElm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindXMoviesByPartialActorName", ReplyAction="http://tempuri.org/IService1/FindXMoviesByPartialActorNameResponse")]
+        System.Threading.Tasks.Task<DTO.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCommentOnActorId", ReplyAction="http://tempuri.org/IService1/InsertCommentOnActorIdResponse")]
+        void InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCommentOnActorId", ReplyAction="http://tempuri.org/IService1/InsertCommentOnActorIdResponse")]
+        System.Threading.Tasks.Task InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetActorById", ReplyAction="http://tempuri.org/IService1/GetActorByIdResponse")]
+        DTO.FullActorDTO GetActorById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetActorById", ReplyAction="http://tempuri.org/IService1/GetActorByIdResponse")]
+        System.Threading.Tasks.Task<DTO.FullActorDTO> GetActorByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,20 +87,44 @@ namespace Test_WCF.ServiceReferenceFilm {
             return base.Channel.GetMovieByIdActorAsync(idActor);
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public DTO.LightMovieDTO[] GetFavoriteFilms() {
+            return base.Channel.GetFavoriteFilms();
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<DTO.LightMovieDTO[]> GetFavoriteFilmsAsync() {
+            return base.Channel.GetFavoriteFilmsAsync();
         }
         
-        public WCF_App.CompositeType GetDataUsingDataContract(WCF_App.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public DTO.CharacterDTO[] GetCharacterByIdActorAndIdFilm(int actorId, int MovieId) {
+            return base.Channel.GetCharacterByIdActorAndIdFilm(actorId, MovieId);
         }
         
-        public System.Threading.Tasks.Task<WCF_App.CompositeType> GetDataUsingDataContractAsync(WCF_App.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<DTO.CharacterDTO[]> GetCharacterByIdActorAndIdFilmAsync(int actorId, int MovieId) {
+            return base.Channel.GetCharacterByIdActorAndIdFilmAsync(actorId, MovieId);
+        }
+        
+        public DTO.MovieDTO[] FindXMoviesByPartialActorName(string name, int nbElm) {
+            return base.Channel.FindXMoviesByPartialActorName(name, nbElm);
+        }
+        
+        public System.Threading.Tasks.Task<DTO.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm) {
+            return base.Channel.FindXMoviesByPartialActorNameAsync(name, nbElm);
+        }
+        
+        public void InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO) {
+            base.Channel.InsertCommentOnActorId(actorId, commentDTO);
+        }
+        
+        public System.Threading.Tasks.Task InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO) {
+            return base.Channel.InsertCommentOnActorIdAsync(actorId, commentDTO);
+        }
+        
+        public DTO.FullActorDTO GetActorById(int id) {
+            return base.Channel.GetActorById(id);
+        }
+        
+        public System.Threading.Tasks.Task<DTO.FullActorDTO> GetActorByIdAsync(int id) {
+            return base.Channel.GetActorByIdAsync(id);
         }
     }
 }

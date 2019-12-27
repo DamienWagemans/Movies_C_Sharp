@@ -15,16 +15,40 @@ namespace WCF_App
 	public interface IService1
 	{
 		[OperationContract]
-		List<MovieDTO> GetMovieByIdActor(int idActor);
+		ICollection<MovieDTO> GetMovieByIdActor(int idActor);
 
 		[OperationContract]
 		ICollection<LightMovieDTO> GetFavoriteFilms();
 
 		[OperationContract]
-		string GetData(int value);
+		ICollection<CharacterDTO> GetCharacterByIdActorAndIdFilm(int actorId, int MovieId);
 
 		[OperationContract]
-		CompositeType GetDataUsingDataContract(CompositeType composite);
+		ICollection<MovieDTO> FindXMoviesByPartialActorName(string name, int nbElm);
+
+		[OperationContract]
+		void InsertCommentOnActorId(int actorId, CommentDTO commentDTO);
+		
+		[OperationContract]
+		FullActorDTO GetActorById(int id);
+
+		[OperationContract]
+		int GetCountActors();
+
+		[OperationContract]
+		ICollection<ActorDTO> GetXActorsFromY(int X, int Y);
+
+		[OperationContract]
+		ICollection<ActorDTO> GetXActorsByName(string name, int X);
+		
+		[OperationContract]
+		ICollection<CommentDTO> GetCommentByActorId(int actorId);
+
+		[OperationContract]
+		int CountCommentsByActor(int actorId);
+
+		[OperationContract]
+		ICollection<CommentDTO> GetXCommentsFromYByActorId(int actorId, int X, int Y);
 
 		// TODO: Add your service operations here
 	}

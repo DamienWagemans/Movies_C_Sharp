@@ -24,7 +24,7 @@ namespace DTO
 
 		public override string ToString()
 		{
-			return "CharacterDTO id:" + CharacterDTOId + "  " + Name;
+			return "CharacterDTO id:" + CharacterDTOId + " Name : " + Name;
 		}
 	}
 }

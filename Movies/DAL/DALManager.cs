@@ -61,7 +61,7 @@ namespace DAL
 			return _movies_context.TabMovies.Find(id);
 		}
 
-		public ICollection<Movie> GetListFilmsByIdActor(int idActor)
+		public ICollection<Movie> GetListMoviesByIdActor(int idActor)
 		{
 			var a = GetActorById(idActor);
 			if (a == null)
@@ -69,9 +69,9 @@ namespace DAL
 			return a.Movies;
 		}
 
-		public ICollection<Movie> FindXFilmByPartialActorName(string name, int nbElm)
+		public ICollection<Movie> FindXMoviesByPartialActorName(string name, int nbElm)
 		{
-			var listFilm = new List<Movie>();
+			var listMovie = new List<Movie>();
 
 			var actor = _movies_context.TabActor.FirstOrDefault(x => x.Name.Contains(name));
 
@@ -83,12 +83,12 @@ namespace DAL
 				if (i == nbElm)
 					break;
 				i++;
-				listFilm.Add(m);
+				listMovie.Add(m);
 			}
-			return listFilm;
+			return listMovie;
 		}
 
-		public ICollection<Movie> Get10FavoriteFilms()
+		public ICollection<Movie> Get10FavoriteMovies()
 		{
 			return _movies_context.TabMovies
 						.OrderByDescending(f => f.Voteaverage)
@@ -96,14 +96,14 @@ namespace DAL
 		}
 
 
-		public ICollection<Movie> GetXFilms(int nbr)
+		public ICollection<Movie> GetXMovies(int nbr)
 		{
 			return _movies_context.TabMovies.Take<Movie>(nbr).ToList();
 		}
-
-		public ICollection<Movie> GetXFilmsFromY(int X, int Y)
+		//faire la	 meme pour les commentaires associé a un certain acteur dans BLL
+		public ICollection<Movie> GetXMoviesFromY(int X, int Y)
 		{
-			return _movies_context.TabMovies.Skip<Movie>(Y).Take<Movie>(X).ToList();
+			return _movies_context.TabMovies.OrderBy(f => f.Title).Skip<Movie>(Y).Take<Movie>(X).ToList();
 		}
 		#endregion
 
@@ -113,6 +113,19 @@ namespace DAL
 		public Actor GetActorById(int id)
 		{
 			return _movies_context.TabActor.Find(id);
+		}
+		public ICollection<Actor> GetXActorsByName(string name, int X)
+		{
+			return _movies_context.TabActor.Where(a => a.Name.Contains(name)).Take<Actor>(X).ToList();
+		}
+		public int GetCountActors()
+		{
+			return _movies_context.TabActor.Count();
+		}
+
+		public ICollection<Actor> GetXActorsFromY(int X, int Y)
+		{
+			return _movies_context.TabActor.OrderBy(a => a.Name).Skip<Actor>(Y).Take<Actor>(X).ToList();
 		}
 
 		#endregion
@@ -131,13 +144,13 @@ namespace DAL
 			return _movies_context.TabCharacters.Find(id);
 		}
 
-		public ICollection<Character> GetCharacterByIdActorAndIdFilm(int actorId, int filmId)
+		public ICollection<Character> GetCharacterByIdActorAndIdMovie(int actorId, int MovieId)
 		{
 			var listCharacter = new List<Character>();
 
 			IQueryable<Character> productCharacter = from ca in _movies_context.TabCharacterActors
 													 where ca.ActorID == actorId &&
-														   ca.MovieID == filmId
+														   ca.MovieID == MovieId
 													 select ca.Character;
 
 			//verif si y qql chose dans la list
@@ -162,9 +175,28 @@ namespace DAL
 
 			comment.Actor = actor;
 			_movies_context.TabComments.Add(comment);
+			
 			_movies_context.SaveChanges();
 
 			return true;
+		}
+
+		public ICollection<Comment> GetCommentsByActorId(int actorId)
+		{
+			var comments = _movies_context.TabComments.Where(p => p.ActorId == actorId);
+			return comments.Take<Comment>(20).ToList();
+		}
+
+		public int CountCommentsByActor (int actorId)
+		{
+			var comments = _movies_context.TabComments.Where(p => p.ActorId == actorId);
+			return comments.Count();
+		}
+
+		public ICollection<Comment> GetXCommentsFromYByActorId(int actorId, int X, int Y)
+		{
+			var comments = _movies_context.TabComments.Where(p => p.ActorId == actorId);
+			return comments.OrderBy(c => c.Date).Skip<Comment>(Y).Take<Comment>(X).ToList();
 		}
 
 		#endregion

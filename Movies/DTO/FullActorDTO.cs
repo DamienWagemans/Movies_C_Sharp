@@ -4,15 +4,15 @@ using System.Text;
 
 namespace DTO
 {
-	class FullActorDTO : ActorDTO
+	public class FullActorDTO : ActorDTO
 	{
-		public virtual ICollection<MovieDTO> film { get; set; }
+		public virtual ICollection<LightMovieDTO> Movies { get; set; }
 		public virtual ICollection<CommentDTO> comment { get; set;}
 
 		public FullActorDTO() : base()
 		{
-			film = new HashSet<MovieDTO>();
-			comment = new HashSet<CommentDTO>();
+			Movies = new List<LightMovieDTO>();
+			comment = new List<CommentDTO>();
 		}
 	}
 }

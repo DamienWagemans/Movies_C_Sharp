@@ -7,25 +7,25 @@ namespace DTO
 	public class ActorDTO
 	{
 		public int ActorId { get; set; }
-		public string Surname { get; set; }
+		public string Firstname { get; set; }
 		public string Name { get; set; }
 
 		public ActorDTO()
 		{
 			ActorId = 0;
-			Surname = "Bidon";
+			Firstname = "Bidon";
 			Name = "Bidon";
 		}
 
-		public ActorDTO(int id, string name,string surname)
+		public ActorDTO(int id, string name,string firstname)
 		{
 			ActorId = id;
-			Surname = surname;
+			Firstname = firstname;
 			Name = name;
 		}
 		public override string ToString()
 		{
-			return "ActorDTP id:" + ActorId + "  " + Name + "  " + Surname;
+			return "ActorDTP id:" + ActorId + " Name : " + Name + " FirstName : " + Firstname;
 		}
 	}
 }

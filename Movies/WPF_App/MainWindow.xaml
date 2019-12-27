@@ -1,0 +1,50 @@
+﻿<Window x:Class="WPF_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Converter;assembly=Converter"
+        mc:Ignorable="d"
+        Title="Movies" Height="474.434" Width="895.513">
+
+    <Window.Resources>
+        <local:Convert_To_Image x:Key="Convert_To_Image"/>
+    </Window.Resources>
+
+    <Grid Height="417" VerticalAlignment="Top">
+        <Label Content="Liste des acteurs :" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" Height="28" Width="104"/>
+        <DataGrid HorizontalAlignment="Left" Height="257" Margin="26,54,0,0" VerticalAlignment="Top" Width="252" ItemsSource="{Binding}" Name="ActorDataGrid" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="ActorDataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding Path=Firstname}" Header="Prénom" Width="150"/>
+                <DataGridTextColumn  Binding="{Binding Path=Name}" Header="Nom" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Précédent" HorizontalAlignment="Left" Height="27" Margin="26,328,0,0" VerticalAlignment="Top" Width="69" Click="click_precedent"/>
+        <Button Content="Suivant" HorizontalAlignment="Left" Height="27" Margin="209,328,0,0" VerticalAlignment="Top" Width="69" Click="click_suivant"/>
+        <Label x:Name="pagination" Content="000/100" HorizontalAlignment="Left" Height="27" Margin="126,328,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.909,0.556"/>
+        <TextBox x:Name="recherche_par_nom" HorizontalAlignment="Left" Height="20" Margin="26,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" TextChanged="changement_texte"/>
+        <Label Content="Recherche par Nom :" HorizontalAlignment="Left" Margin="26,365,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Nom_label" Content="Nom" HorizontalAlignment="Left" Margin="304,23,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="prenom_label" Content="Prenom" HorizontalAlignment="Left" Margin="378,22,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <DataGrid HorizontalAlignment="Left" Height="257" Margin="303,54,0,0" VerticalAlignment="Top" Width="567" ItemsSource="{Binding}" Name="MoviesDataGrid"  IsReadOnly="True" AutoGenerateColumns="False" MouseDoubleClick="MoviesDataGrid_MouseDoubleClick" SelectionChanged="MoviesDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Affiche" Width="Auto" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=Posterpath, Converter={StaticResource Convert_To_Image}}" 
+                                       Height="Auto" 
+                                       Width="Auto" VerticalAlignment="Top"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn  Binding="{Binding Path=Title}" Header="Titre" Width="Auto"/>
+                <DataGridTextColumn  Binding="{Binding Path=ReleaseDate}" Header="Date" Width="Auto"/>
+                <DataGridTextColumn  Binding="{Binding Path=Runtime}" Header="Durée" Width="Auto"/>
+                <DataGridTextColumn  Binding="{Binding Path=CharactersList}" Header="Personnage" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="voir_commentaire" Content="Voir les commentaires" HorizontalAlignment="Left" Margin="513,327,0,0" VerticalAlignment="Top" Width="166" Height="27" Click="voir_commentaire_Click"/>
+
+
+    </Grid>
+</Window>

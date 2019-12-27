@@ -23,7 +23,7 @@ namespace DTO
 
 		public override string ToString()
 		{
-			return "LightFilmDTO id:" + MovieId + " " + Title + "VA : " + VoteAverage;
+			return "LightFilmDTO id:" + MovieId + " Title : " + Title + "  VA : " + VoteAverage;
 		}
 	}
 }

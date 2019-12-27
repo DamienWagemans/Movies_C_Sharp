@@ -14,22 +14,34 @@ namespace WCF_App
 	// NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
 	public class Service1 : IService1
 	{
-		public string GetData(int value)
+		public int CountCommentsByActor(int actorId)
 		{
-			return string.Format("You entered: {0}", value);
+			return BusinessLogicLayer.CountCommentsByActor(actorId);
 		}
 
-		public CompositeType GetDataUsingDataContract(CompositeType composite)
+		public ICollection<MovieDTO> FindXMoviesByPartialActorName(string name, int nbElm)
 		{
-			if (composite == null)
-			{
-				throw new ArgumentNullException("composite");
-			}
-			if (composite.BoolValue)
-			{
-				composite.StringValue += "Suffix";
-			}
-			return composite;
+			return BusinessLogicLayer.FindXMoviesByPartialActorName(name,nbElm);
+		}
+
+		public FullActorDTO GetActorById(int id)
+		{
+			return BusinessLogicLayer.GetActorById(id);
+		}
+
+		public ICollection<CharacterDTO> GetCharacterByIdActorAndIdFilm(int actorId, int MovieId)
+		{
+			return BusinessLogicLayer.GetCharacterByIdActorAndIdFilm (actorId,MovieId);
+		}
+
+		public ICollection<CommentDTO> GetCommentByActorId(int actorId)
+		{
+			return BusinessLogicLayer.GetCommentByActorId(actorId);
+		}
+
+		public int GetCountActors()
+		{
+			return BusinessLogicLayer.GetCountActors();
 		}
 
 		public ICollection<LightMovieDTO> GetFavoriteFilms()
@@ -37,9 +49,29 @@ namespace WCF_App
 			return BusinessLogicLayer.GetFavoriteFilms();
 		}
 
-		public List<MovieDTO> GetMovieByIdActor(int idActor)
+		public ICollection<MovieDTO> GetMovieByIdActor(int idActor)
 		{
 			return (List<MovieDTO>)BusinessLogicLayer.GetMovieByIdActor(idActor);
+		}
+
+		public ICollection<ActorDTO> GetXActorsByName(string name, int X)
+		{
+			return BusinessLogicLayer.GetXActorsByName(name, X);
+		}
+
+		public ICollection<ActorDTO> GetXActorsFromY(int X, int Y)
+		{
+			return BusinessLogicLayer.GetXActorsFromY(X, Y);
+		}
+
+		public ICollection<CommentDTO> GetXCommentsFromYByActorId(int actorId, int X, int Y)
+		{
+			return BusinessLogicLayer.GetXCommentsFromYByActorId(actorId, X, Y);
+		}
+
+		public void InsertCommentOnActorId(int actorId, CommentDTO commentDTO)
+		{
+			BusinessLogicLayer.InsertCommentOnActorId (actorId, commentDTO);
 		}
 	}
 }

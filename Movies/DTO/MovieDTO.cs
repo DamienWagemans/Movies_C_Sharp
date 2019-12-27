@@ -4,6 +4,9 @@ namespace DTO
 {
 	public class MovieDTO
 	{
+		
+		//getXcomment a partir de Y
+		//rajouter une collection de character au film
 		public int MovieID { get; set; }
 		public string Title { get; set; }
 		public DateTime? ReleaseDate { get; set; }
@@ -33,7 +36,7 @@ namespace DTO
 
 		public override string ToString()
 		{
-			return "FilmDTO id:" + MovieID + " " + Title;
+			return "FilmDTO id:" + MovieID + " Title : " + Title + " Release date : " + ReleaseDate + " VA : " + VoteAverage + "RunTime : " + Runtime;
 		}
 	}
 }

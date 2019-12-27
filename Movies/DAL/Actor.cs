@@ -26,6 +26,7 @@ namespace DAL
 			Name = actor_details[1];
 			CharacterActors = new List<CharacterActor>();
 			Movies = new List<Movie>();
+		
 		}
 
 
@@ -35,7 +36,6 @@ namespace DAL
 			Firstname = "temp";
 			CharacterActors = new List<CharacterActor>();
 			Movies = new List<Movie>();
-
 		}
 
 		public void add_name_firstname(string text)
@@ -69,6 +69,12 @@ namespace DAL
 			}
 			return 0;
 
+		}
+
+		public override string ToString()
+		{
+			
+			return ("Prénom : " + Firstname + "  Nom : " + Name + "\n");
 		}
 	}
 }
