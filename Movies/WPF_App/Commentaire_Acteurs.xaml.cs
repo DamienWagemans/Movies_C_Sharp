@@ -46,7 +46,7 @@ namespace WPF_App
 
 			List_Comments_Model = new Comments_ListViewModel(actorId);
 			
-			List_Comments_Model.refresh_comments(5,1);
+			List_Comments_Model.refresh_comments(5,0);
 			pagination.Content = (page_en_cours + "/" + nombre_de_pages);
 
 			label_actro_name.Content = List_Comments_Model.get_Name_Moyenne();

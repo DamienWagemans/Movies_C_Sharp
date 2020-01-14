@@ -11,35 +11,7 @@ namespace Converter
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			int rate = (int)value;
-			string path = "C:\\Users\\damien\\Desktop\\Etoiles\\";
-			switch (rate)
-			{
-				case (1):
-					{
-						path += "1.png";
-						break;
-					}
-				case (2):
-					{
-						path += "2.png";
-						break;
-					}
-				case (3):
-					{
-						path += "3.png";
-						break;
-					}
-				case (4):
-					{
-						path += "4.png";
-						break;
-					}
-				case (5):
-					{
-						path += "5.png";
-						break;
-					}
-			}
+			string path = ("C:\\Users\\damien\\Desktop\\Etoiles\\"+rate+".png");
 			return path;
 		}
 

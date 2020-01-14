@@ -14,12 +14,14 @@ namespace testDB
 		static void Main(string[] args)
 		{
 			#region AJOUT DE DONNEE
-			//using (var manager = new DALManager())
-			//{
-			//	FilmParser.Load_X_film(manager, "C:/Users/damien/Desktop/movies_v2.txt", 50);
-			//}
-			//Console.WriteLine("FIN");
-			//Console.ReadLine();
+			for(int i=0; i<1050; i+=50)
+			{
+				var manager = new DALManager();
+				FilmParser.Load_X_film(manager, "C:/Users/damien/Desktop/movies_v2.txt", i);
+
+			}
+			Console.WriteLine("FIN");
+			Console.ReadLine();
 			#endregion
 
 
@@ -83,12 +85,12 @@ namespace testDB
 			//Console.ReadLine();
 
 
-			ICollection<CommentDTO> List_comm = BusinessLogicLayer.GetCommentByActorId(2);
+			//ICollection<CommentDTO> List_comm = BusinessLogicLayer.GetCommentByActorId(2);
 
-			foreach (CommentDTO comm in List_comm)
-			{
-				Console.WriteLine(comm.ToString());
-			}
+			//foreach (CommentDTO comm in List_comm)
+			//{
+			//	Console.WriteLine(comm.ToString());
+			//}
 
 
 

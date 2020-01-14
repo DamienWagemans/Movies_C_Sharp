@@ -175,5 +175,26 @@ namespace BLL
 			}
 
 		}
+
+		public static int getRateCommentbyActorID(int actorId)
+		{
+			DALManager dm = new DALManager();
+			int moyenne = 0;
+			var comments = dm.GetCommentsByActorId(actorId);
+
+			if (comments.Count != 0)
+			{
+				foreach (Comment c in comments)
+				{
+					moyenne += c.Rate;
+				}
+				moyenne = moyenne / comments.Count;
+			}
+			else
+			{
+				moyenne = -1;
+			}
+			return moyenne;
+		}
 	}
 }

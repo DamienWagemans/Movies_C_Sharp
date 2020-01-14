@@ -40,10 +40,10 @@ namespace WPF_App.WCF_Movie_Services {
         System.Threading.Tasks.Task<DTO.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCommentOnActorId", ReplyAction="http://tempuri.org/IService1/InsertCommentOnActorIdResponse")]
-        void InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO);
+        bool InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCommentOnActorId", ReplyAction="http://tempuri.org/IService1/InsertCommentOnActorIdResponse")]
-        System.Threading.Tasks.Task InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO);
+        System.Threading.Tasks.Task<bool> InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetActorById", ReplyAction="http://tempuri.org/IService1/GetActorByIdResponse")]
         DTO.FullActorDTO GetActorById(int id);
@@ -86,6 +86,12 @@ namespace WPF_App.WCF_Movie_Services {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXCommentsFromYByActorId", ReplyAction="http://tempuri.org/IService1/GetXCommentsFromYByActorIdResponse")]
         System.Threading.Tasks.Task<DTO.CommentDTO[]> GetXCommentsFromYByActorIdAsync(int actorId, int X, int Y);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getRateCommentbyActorID", ReplyAction="http://tempuri.org/IService1/getRateCommentbyActorIDResponse")]
+        int getRateCommentbyActorID(int actorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getRateCommentbyActorID", ReplyAction="http://tempuri.org/IService1/getRateCommentbyActorIDResponse")]
+        System.Threading.Tasks.Task<int> getRateCommentbyActorIDAsync(int actorId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -147,11 +153,11 @@ namespace WPF_App.WCF_Movie_Services {
             return base.Channel.FindXMoviesByPartialActorNameAsync(name, nbElm);
         }
         
-        public void InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO) {
-            base.Channel.InsertCommentOnActorId(actorId, commentDTO);
+        public bool InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO) {
+            return base.Channel.InsertCommentOnActorId(actorId, commentDTO);
         }
         
-        public System.Threading.Tasks.Task InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO) {
+        public System.Threading.Tasks.Task<bool> InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO) {
             return base.Channel.InsertCommentOnActorIdAsync(actorId, commentDTO);
         }
         
@@ -209,6 +215,14 @@ namespace WPF_App.WCF_Movie_Services {
         
         public System.Threading.Tasks.Task<DTO.CommentDTO[]> GetXCommentsFromYByActorIdAsync(int actorId, int X, int Y) {
             return base.Channel.GetXCommentsFromYByActorIdAsync(actorId, X, Y);
+        }
+        
+        public int getRateCommentbyActorID(int actorId) {
+            return base.Channel.getRateCommentbyActorID(actorId);
+        }
+        
+        public System.Threading.Tasks.Task<int> getRateCommentbyActorIDAsync(int actorId) {
+            return base.Channel.getRateCommentbyActorIDAsync(actorId);
         }
     }
 }

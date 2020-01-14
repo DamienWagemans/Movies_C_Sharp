@@ -27,7 +27,7 @@ namespace WCF_App
 		ICollection<MovieDTO> FindXMoviesByPartialActorName(string name, int nbElm);
 
 		[OperationContract]
-		void InsertCommentOnActorId(int actorId, CommentDTO commentDTO);
+		Boolean InsertCommentOnActorId(int actorId, CommentDTO commentDTO);
 		
 		[OperationContract]
 		FullActorDTO GetActorById(int id);
@@ -49,6 +49,9 @@ namespace WCF_App
 
 		[OperationContract]
 		ICollection<CommentDTO> GetXCommentsFromYByActorId(int actorId, int X, int Y);
+
+		[OperationContract]
+		int getRateCommentbyActorID(int actorId);
 
 		// TODO: Add your service operations here
 	}

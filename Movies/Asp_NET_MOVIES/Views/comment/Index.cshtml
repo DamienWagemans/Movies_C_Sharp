@@ -1,0 +1,62 @@
+﻿@model ICollection<Asp_NET_MOVIES.Models.Comment>
+
+@{
+    ViewBag.Title = "Commentaires";
+}
+
+<h2>Liste des commentaires</h2>
+<div class="row">
+    <div class="col-md-6">
+        <table style="width:50%" class="table table-bordered">
+            <tr>
+                <td>Avatar</td>
+                <td>Contenu</td>
+                <td>Date</td>
+                <td>Image</td>
+            </tr>
+
+            @foreach (var f in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => f.Avatar)</td>
+                    <td>@Html.DisplayFor(modelItem => f.Content)</td>
+                    <td>@Html.DisplayFor(modelItem => f.Date)</td>
+                    <td><img src="@f.Rate" style="height: 27px;width: 150px" /></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+    <div class="col-md-4">
+        <form id="form1" method="post" action="Index">
+            <div>
+                <label for="labelActorID">ID de l'acteur</label>
+            </div>
+            <div>
+                <input name="Input_ActorID" type="number" value = "@ViewBag.ActorID" readonly />
+            </div>
+            <div>
+                <label for="labelAvatar">Avatar</label>
+            </div>
+            <div>
+                <input name="Input_Avatar" type="text" placeholder="Avatar" required />
+            </div>
+            <div>
+                <label for="labelContenu">Contenu</label>
+            </div>
+            <div>
+                <input name="Input_Contenu" type="text" placeholder="Contenu du commentaire" required />
+            </div>
+            <div>
+                <label for="labelNote">Note :</label>
+            </div>
+            <div>
+                <input name="Input_Note" type="number" placeholder="Note de 0 à 5" required />
+            </div>
+
+            <div>
+                <input type="submit" value="Valider" />
+            </div>
+        </form>
+    </div>
+</div>

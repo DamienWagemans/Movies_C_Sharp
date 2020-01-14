@@ -79,6 +79,12 @@
   <wsdl:message name="IService1_GetXCommentsFromYByActorId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetXCommentsFromYByActorIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getRateCommentbyActorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRateCommentbyActorID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getRateCommentbyActorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRateCommentbyActorIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetMovieByIdActor">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMovieByIdActor" message="tns:IService1_GetMovieByIdActor_InputMessage" />
@@ -127,6 +133,10 @@
     <wsdl:operation name="GetXCommentsFromYByActorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetXCommentsFromYByActorId" message="tns:IService1_GetXCommentsFromYByActorId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetXCommentsFromYByActorIdResponse" message="tns:IService1_GetXCommentsFromYByActorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRateCommentbyActorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getRateCommentbyActorID" message="tns:IService1_getRateCommentbyActorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getRateCommentbyActorIDResponse" message="tns:IService1_getRateCommentbyActorID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -232,6 +242,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetXCommentsFromYByActorId">
       <soap:operation soapAction="http://tempuri.org/IService1/GetXCommentsFromYByActorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRateCommentbyActorID">
+      <soap:operation soapAction="http://tempuri.org/IService1/getRateCommentbyActorID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,0 +1,26 @@
+﻿@model ICollection<Asp_NET_MOVIES.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Liste des films</h2>
+
+<table style="width:50%" class="table table-bordered">
+    <tr>
+        <td>Titre</td>
+        <td>Duree</td>
+        <td>Date de sortie</td>
+        <td>Image</td>
+    </tr>
+
+    @foreach (var f in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(modelItem => f.Title)</td>
+    <td>@Html.DisplayFor(modelItem => f.Runtime)</td>
+    <td>@Html.DisplayFor(modelItem => f.ReleaseDate)</td>
+    <td><img src="@f.Posterpath" style="width: 100px;height:100px" /></td>
+</tr>
+    }
+</table>

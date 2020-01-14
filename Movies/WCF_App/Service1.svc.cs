@@ -54,6 +54,11 @@ namespace WCF_App
 			return (List<MovieDTO>)BusinessLogicLayer.GetMovieByIdActor(idActor);
 		}
 
+		public int getRateCommentbyActorID(int actorId)
+		{
+			return BusinessLogicLayer.getRateCommentbyActorID(actorId);
+		}
+
 		public ICollection<ActorDTO> GetXActorsByName(string name, int X)
 		{
 			return BusinessLogicLayer.GetXActorsByName(name, X);
@@ -69,9 +74,9 @@ namespace WCF_App
 			return BusinessLogicLayer.GetXCommentsFromYByActorId(actorId, X, Y);
 		}
 
-		public void InsertCommentOnActorId(int actorId, CommentDTO commentDTO)
+		public Boolean InsertCommentOnActorId(int actorId, CommentDTO commentDTO)
 		{
-			BusinessLogicLayer.InsertCommentOnActorId (actorId, commentDTO);
+			return BusinessLogicLayer.InsertCommentOnActorId (actorId, commentDTO);
 		}
 	}
 }

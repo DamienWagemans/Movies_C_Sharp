@@ -9,522 +9,47 @@
 //------------------------------------------------------------------------------
 
 namespace Asp_NET_MOVIES.ServiceWCFMovies {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MovieDTO", Namespace="http://schemas.datacontract.org/2004/07/DTO")]
-    [System.SerializableAttribute()]
-    public partial class MovieDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MovieIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PosterpathField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ReleaseDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RuntimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float VoteAverageField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MovieID {
-            get {
-                return this.MovieIDField;
-            }
-            set {
-                if ((this.MovieIDField.Equals(value) != true)) {
-                    this.MovieIDField = value;
-                    this.RaisePropertyChanged("MovieID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Posterpath {
-            get {
-                return this.PosterpathField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PosterpathField, value) != true)) {
-                    this.PosterpathField = value;
-                    this.RaisePropertyChanged("Posterpath");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ReleaseDate {
-            get {
-                return this.ReleaseDateField;
-            }
-            set {
-                if ((this.ReleaseDateField.Equals(value) != true)) {
-                    this.ReleaseDateField = value;
-                    this.RaisePropertyChanged("ReleaseDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Runtime {
-            get {
-                return this.RuntimeField;
-            }
-            set {
-                if ((this.RuntimeField.Equals(value) != true)) {
-                    this.RuntimeField = value;
-                    this.RaisePropertyChanged("Runtime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float VoteAverage {
-            get {
-                return this.VoteAverageField;
-            }
-            set {
-                if ((this.VoteAverageField.Equals(value) != true)) {
-                    this.VoteAverageField = value;
-                    this.RaisePropertyChanged("VoteAverage");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LightMovieDTO", Namespace="http://schemas.datacontract.org/2004/07/DTO")]
-    [System.SerializableAttribute()]
-    public partial class LightMovieDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MovieIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float VoteAverageField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MovieId {
-            get {
-                return this.MovieIdField;
-            }
-            set {
-                if ((this.MovieIdField.Equals(value) != true)) {
-                    this.MovieIdField = value;
-                    this.RaisePropertyChanged("MovieId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float VoteAverage {
-            get {
-                return this.VoteAverageField;
-            }
-            set {
-                if ((this.VoteAverageField.Equals(value) != true)) {
-                    this.VoteAverageField = value;
-                    this.RaisePropertyChanged("VoteAverage");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CharacterDTO", Namespace="http://schemas.datacontract.org/2004/07/DTO")]
-    [System.SerializableAttribute()]
-    public partial class CharacterDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CharacterDTOIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CharacterDTOId {
-            get {
-                return this.CharacterDTOIdField;
-            }
-            set {
-                if ((this.CharacterDTOIdField.Equals(value) != true)) {
-                    this.CharacterDTOIdField = value;
-                    this.RaisePropertyChanged("CharacterDTOId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CommentDTO", Namespace="http://schemas.datacontract.org/2004/07/DTO")]
-    [System.SerializableAttribute()]
-    public partial class CommentDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AvatarField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RateField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Avatar {
-            get {
-                return this.AvatarField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AvatarField, value) != true)) {
-                    this.AvatarField = value;
-                    this.RaisePropertyChanged("Avatar");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Content {
-            get {
-                return this.ContentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
-                    this.ContentField = value;
-                    this.RaisePropertyChanged("Content");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Date {
-            get {
-                return this.DateField;
-            }
-            set {
-                if ((this.DateField.Equals(value) != true)) {
-                    this.DateField = value;
-                    this.RaisePropertyChanged("Date");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Rate {
-            get {
-                return this.RateField;
-            }
-            set {
-                if ((this.RateField.Equals(value) != true)) {
-                    this.RateField = value;
-                    this.RaisePropertyChanged("Rate");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ActorDTO", Namespace="http://schemas.datacontract.org/2004/07/DTO")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Asp_NET_MOVIES.ServiceWCFMovies.FullActorDTO))]
-    public partial class ActorDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ActorIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ActorId {
-            get {
-                return this.ActorIdField;
-            }
-            set {
-                if ((this.ActorIdField.Equals(value) != true)) {
-                    this.ActorIdField = value;
-                    this.RaisePropertyChanged("ActorId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Firstname {
-            get {
-                return this.FirstnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirstnameField, value) != true)) {
-                    this.FirstnameField = value;
-                    this.RaisePropertyChanged("Firstname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FullActorDTO", Namespace="http://schemas.datacontract.org/2004/07/DTO")]
-    [System.SerializableAttribute()]
-    public partial class FullActorDTO : Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO[] MoviesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[] commentField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO[] Movies {
-            get {
-                return this.MoviesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MoviesField, value) != true)) {
-                    this.MoviesField = value;
-                    this.RaisePropertyChanged("Movies");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[] comment {
-            get {
-                return this.commentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.commentField, value) != true)) {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("comment");
-                }
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceWCFMovies.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieByIdActor", ReplyAction="http://tempuri.org/IService1/GetMovieByIdActorResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[] GetMovieByIdActor(int idActor);
+        DTO.MovieDTO[] GetMovieByIdActor(int idActor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieByIdActor", ReplyAction="http://tempuri.org/IService1/GetMovieByIdActorResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[]> GetMovieByIdActorAsync(int idActor);
+        System.Threading.Tasks.Task<DTO.MovieDTO[]> GetMovieByIdActorAsync(int idActor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFavoriteFilms", ReplyAction="http://tempuri.org/IService1/GetFavoriteFilmsResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO[] GetFavoriteFilms();
+        DTO.LightMovieDTO[] GetFavoriteFilms();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFavoriteFilms", ReplyAction="http://tempuri.org/IService1/GetFavoriteFilmsResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO[]> GetFavoriteFilmsAsync();
+        System.Threading.Tasks.Task<DTO.LightMovieDTO[]> GetFavoriteFilmsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilm", ReplyAction="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilmResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.CharacterDTO[] GetCharacterByIdActorAndIdFilm(int actorId, int MovieId);
+        DTO.CharacterDTO[] GetCharacterByIdActorAndIdFilm(int actorId, int MovieId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilm", ReplyAction="http://tempuri.org/IService1/GetCharacterByIdActorAndIdFilmResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.CharacterDTO[]> GetCharacterByIdActorAndIdFilmAsync(int actorId, int MovieId);
+        System.Threading.Tasks.Task<DTO.CharacterDTO[]> GetCharacterByIdActorAndIdFilmAsync(int actorId, int MovieId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindXMoviesByPartialActorName", ReplyAction="http://tempuri.org/IService1/FindXMoviesByPartialActorNameResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[] FindXMoviesByPartialActorName(string name, int nbElm);
+        DTO.MovieDTO[] FindXMoviesByPartialActorName(string name, int nbElm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindXMoviesByPartialActorName", ReplyAction="http://tempuri.org/IService1/FindXMoviesByPartialActorNameResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm);
+        System.Threading.Tasks.Task<DTO.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCommentOnActorId", ReplyAction="http://tempuri.org/IService1/InsertCommentOnActorIdResponse")]
-        void InsertCommentOnActorId(int actorId, Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO commentDTO);
+        bool InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCommentOnActorId", ReplyAction="http://tempuri.org/IService1/InsertCommentOnActorIdResponse")]
-        System.Threading.Tasks.Task InsertCommentOnActorIdAsync(int actorId, Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO commentDTO);
+        System.Threading.Tasks.Task<bool> InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetActorById", ReplyAction="http://tempuri.org/IService1/GetActorByIdResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.FullActorDTO GetActorById(int id);
+        DTO.FullActorDTO GetActorById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetActorById", ReplyAction="http://tempuri.org/IService1/GetActorByIdResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.FullActorDTO> GetActorByIdAsync(int id);
+        System.Threading.Tasks.Task<DTO.FullActorDTO> GetActorByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCountActors", ReplyAction="http://tempuri.org/IService1/GetCountActorsResponse")]
         int GetCountActors();
@@ -533,22 +58,22 @@ namespace Asp_NET_MOVIES.ServiceWCFMovies {
         System.Threading.Tasks.Task<int> GetCountActorsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXActorsFromY", ReplyAction="http://tempuri.org/IService1/GetXActorsFromYResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[] GetXActorsFromY(int X, int Y);
+        DTO.ActorDTO[] GetXActorsFromY(int X, int Y);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXActorsFromY", ReplyAction="http://tempuri.org/IService1/GetXActorsFromYResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[]> GetXActorsFromYAsync(int X, int Y);
+        System.Threading.Tasks.Task<DTO.ActorDTO[]> GetXActorsFromYAsync(int X, int Y);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXActorsByName", ReplyAction="http://tempuri.org/IService1/GetXActorsByNameResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[] GetXActorsByName(string name, int X);
+        DTO.ActorDTO[] GetXActorsByName(string name, int X);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXActorsByName", ReplyAction="http://tempuri.org/IService1/GetXActorsByNameResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[]> GetXActorsByNameAsync(string name, int X);
+        System.Threading.Tasks.Task<DTO.ActorDTO[]> GetXActorsByNameAsync(string name, int X);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCommentByActorId", ReplyAction="http://tempuri.org/IService1/GetCommentByActorIdResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[] GetCommentByActorId(int actorId);
+        DTO.CommentDTO[] GetCommentByActorId(int actorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCommentByActorId", ReplyAction="http://tempuri.org/IService1/GetCommentByActorIdResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[]> GetCommentByActorIdAsync(int actorId);
+        System.Threading.Tasks.Task<DTO.CommentDTO[]> GetCommentByActorIdAsync(int actorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountCommentsByActor", ReplyAction="http://tempuri.org/IService1/CountCommentsByActorResponse")]
         int CountCommentsByActor(int actorId);
@@ -557,10 +82,16 @@ namespace Asp_NET_MOVIES.ServiceWCFMovies {
         System.Threading.Tasks.Task<int> CountCommentsByActorAsync(int actorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXCommentsFromYByActorId", ReplyAction="http://tempuri.org/IService1/GetXCommentsFromYByActorIdResponse")]
-        Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[] GetXCommentsFromYByActorId(int actorId, int X, int Y);
+        DTO.CommentDTO[] GetXCommentsFromYByActorId(int actorId, int X, int Y);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetXCommentsFromYByActorId", ReplyAction="http://tempuri.org/IService1/GetXCommentsFromYByActorIdResponse")]
-        System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[]> GetXCommentsFromYByActorIdAsync(int actorId, int X, int Y);
+        System.Threading.Tasks.Task<DTO.CommentDTO[]> GetXCommentsFromYByActorIdAsync(int actorId, int X, int Y);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getRateCommentbyActorID", ReplyAction="http://tempuri.org/IService1/getRateCommentbyActorIDResponse")]
+        int getRateCommentbyActorID(int actorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getRateCommentbyActorID", ReplyAction="http://tempuri.org/IService1/getRateCommentbyActorIDResponse")]
+        System.Threading.Tasks.Task<int> getRateCommentbyActorIDAsync(int actorId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -590,51 +121,51 @@ namespace Asp_NET_MOVIES.ServiceWCFMovies {
                 base(binding, remoteAddress) {
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[] GetMovieByIdActor(int idActor) {
+        public DTO.MovieDTO[] GetMovieByIdActor(int idActor) {
             return base.Channel.GetMovieByIdActor(idActor);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[]> GetMovieByIdActorAsync(int idActor) {
+        public System.Threading.Tasks.Task<DTO.MovieDTO[]> GetMovieByIdActorAsync(int idActor) {
             return base.Channel.GetMovieByIdActorAsync(idActor);
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO[] GetFavoriteFilms() {
+        public DTO.LightMovieDTO[] GetFavoriteFilms() {
             return base.Channel.GetFavoriteFilms();
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO[]> GetFavoriteFilmsAsync() {
+        public System.Threading.Tasks.Task<DTO.LightMovieDTO[]> GetFavoriteFilmsAsync() {
             return base.Channel.GetFavoriteFilmsAsync();
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.CharacterDTO[] GetCharacterByIdActorAndIdFilm(int actorId, int MovieId) {
+        public DTO.CharacterDTO[] GetCharacterByIdActorAndIdFilm(int actorId, int MovieId) {
             return base.Channel.GetCharacterByIdActorAndIdFilm(actorId, MovieId);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.CharacterDTO[]> GetCharacterByIdActorAndIdFilmAsync(int actorId, int MovieId) {
+        public System.Threading.Tasks.Task<DTO.CharacterDTO[]> GetCharacterByIdActorAndIdFilmAsync(int actorId, int MovieId) {
             return base.Channel.GetCharacterByIdActorAndIdFilmAsync(actorId, MovieId);
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[] FindXMoviesByPartialActorName(string name, int nbElm) {
+        public DTO.MovieDTO[] FindXMoviesByPartialActorName(string name, int nbElm) {
             return base.Channel.FindXMoviesByPartialActorName(name, nbElm);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm) {
+        public System.Threading.Tasks.Task<DTO.MovieDTO[]> FindXMoviesByPartialActorNameAsync(string name, int nbElm) {
             return base.Channel.FindXMoviesByPartialActorNameAsync(name, nbElm);
         }
         
-        public void InsertCommentOnActorId(int actorId, Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO commentDTO) {
-            base.Channel.InsertCommentOnActorId(actorId, commentDTO);
+        public bool InsertCommentOnActorId(int actorId, DTO.CommentDTO commentDTO) {
+            return base.Channel.InsertCommentOnActorId(actorId, commentDTO);
         }
         
-        public System.Threading.Tasks.Task InsertCommentOnActorIdAsync(int actorId, Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO commentDTO) {
+        public System.Threading.Tasks.Task<bool> InsertCommentOnActorIdAsync(int actorId, DTO.CommentDTO commentDTO) {
             return base.Channel.InsertCommentOnActorIdAsync(actorId, commentDTO);
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.FullActorDTO GetActorById(int id) {
+        public DTO.FullActorDTO GetActorById(int id) {
             return base.Channel.GetActorById(id);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.FullActorDTO> GetActorByIdAsync(int id) {
+        public System.Threading.Tasks.Task<DTO.FullActorDTO> GetActorByIdAsync(int id) {
             return base.Channel.GetActorByIdAsync(id);
         }
         
@@ -646,27 +177,27 @@ namespace Asp_NET_MOVIES.ServiceWCFMovies {
             return base.Channel.GetCountActorsAsync();
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[] GetXActorsFromY(int X, int Y) {
+        public DTO.ActorDTO[] GetXActorsFromY(int X, int Y) {
             return base.Channel.GetXActorsFromY(X, Y);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[]> GetXActorsFromYAsync(int X, int Y) {
+        public System.Threading.Tasks.Task<DTO.ActorDTO[]> GetXActorsFromYAsync(int X, int Y) {
             return base.Channel.GetXActorsFromYAsync(X, Y);
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[] GetXActorsByName(string name, int X) {
+        public DTO.ActorDTO[] GetXActorsByName(string name, int X) {
             return base.Channel.GetXActorsByName(name, X);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO[]> GetXActorsByNameAsync(string name, int X) {
+        public System.Threading.Tasks.Task<DTO.ActorDTO[]> GetXActorsByNameAsync(string name, int X) {
             return base.Channel.GetXActorsByNameAsync(name, X);
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[] GetCommentByActorId(int actorId) {
+        public DTO.CommentDTO[] GetCommentByActorId(int actorId) {
             return base.Channel.GetCommentByActorId(actorId);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[]> GetCommentByActorIdAsync(int actorId) {
+        public System.Threading.Tasks.Task<DTO.CommentDTO[]> GetCommentByActorIdAsync(int actorId) {
             return base.Channel.GetCommentByActorIdAsync(actorId);
         }
         
@@ -678,12 +209,20 @@ namespace Asp_NET_MOVIES.ServiceWCFMovies {
             return base.Channel.CountCommentsByActorAsync(actorId);
         }
         
-        public Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[] GetXCommentsFromYByActorId(int actorId, int X, int Y) {
+        public DTO.CommentDTO[] GetXCommentsFromYByActorId(int actorId, int X, int Y) {
             return base.Channel.GetXCommentsFromYByActorId(actorId, X, Y);
         }
         
-        public System.Threading.Tasks.Task<Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO[]> GetXCommentsFromYByActorIdAsync(int actorId, int X, int Y) {
+        public System.Threading.Tasks.Task<DTO.CommentDTO[]> GetXCommentsFromYByActorIdAsync(int actorId, int X, int Y) {
             return base.Channel.GetXCommentsFromYByActorIdAsync(actorId, X, Y);
+        }
+        
+        public int getRateCommentbyActorID(int actorId) {
+            return base.Channel.getRateCommentbyActorID(actorId);
+        }
+        
+        public System.Threading.Tasks.Task<int> getRateCommentbyActorIDAsync(int actorId) {
+            return base.Channel.getRateCommentbyActorIDAsync(actorId);
         }
     }
 }

@@ -1,11 +1,34 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model ICollection<Asp_NET_MOVIES.Models.Actor>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Actors";
 }
 
-<h2>Index</h2>
+<h2>Liste des acteurs</h2>
 
-<p>Hello from our View Template!</p>
+<table style="width:50%" class="table table-bordered">
+    <tr>
+        <td>Nom</td>
+        <td>Prenom</td>
+        <td>Note</td>
+    </tr>
+
+    @foreach (var act in Model)
+    {
+        <tr>
+            <td><a href="/movie/Index?actorid=@act.Id" class="btn btn-block">@Html.DisplayFor(modelItem => act.Name)</a></td>
+            <td>@Html.DisplayFor(modelItem => act.Firstname)</td>
+            <td><a href="/comment/Index?actorid=@act.Id" class="btn btn-block"><img src="@act.Path_Image" style="height: 27px;width: 150px" /></a></td>
+        </tr>
+    }
+</table>
+<div style="text-align:left">
+    <a href="/actor/Index?chgm_page=precedent&page_en_cours=@ViewBag.page_en_cours" class="btn btn-primary" style="width:200px">Previous Page</a>
+    @ViewBag.Pagination
+    @ViewBag.test
+    <a href="/actor/Index?chgm_page=suivant&page_en_cours=@ViewBag.page_en_cours" class="btn btn-primary" style="width:200px">Next Page</a>
+</div>
+
+
+
 

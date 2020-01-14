@@ -128,31 +128,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\actorController.cs" />
+    <Compile Include="Controllers\commentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\movieController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Actor.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\ServiceWCFMovies\Asp_NET_MOVIES.ServiceWCFMovies.ActorDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceWCFMovies\Asp_NET_MOVIES.ServiceWCFMovies.CharacterDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceWCFMovies\Asp_NET_MOVIES.ServiceWCFMovies.CommentDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceWCFMovies\Asp_NET_MOVIES.ServiceWCFMovies.FullActorDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceWCFMovies\Asp_NET_MOVIES.ServiceWCFMovies.LightMovieDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceWCFMovies\Asp_NET_MOVIES.ServiceWCFMovies.MovieDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\ServiceWCFMovies\Service1.disco" />
     <None Include="Connected Services\ServiceWCFMovies\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceWCFMovies\configuration.svcinfo" />
@@ -168,6 +155,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Rate_Stars\-1.png" />
+    <Content Include="Rate_Stars\0.png" />
+    <Content Include="Rate_Stars\1.png" />
+    <Content Include="Rate_Stars\2.png" />
+    <Content Include="Rate_Stars\3.png" />
+    <Content Include="Rate_Stars\4.png" />
+    <Content Include="Rate_Stars\5.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\ServiceWCFMovies\Service1.wsdl" />
@@ -180,6 +174,12 @@
     <None Include="Connected Services\ServiceWCFMovies\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Properties\DataSources\DTO.ActorDTO.datasource" />
+    <Content Include="Properties\DataSources\DTO.CharacterDTO.datasource" />
+    <Content Include="Properties\DataSources\DTO.CommentDTO.datasource" />
+    <Content Include="Properties\DataSources\DTO.FullActorDTO.datasource" />
+    <Content Include="Properties\DataSources\DTO.LightMovieDTO.datasource" />
+    <Content Include="Properties\DataSources\DTO.MovieDTO.datasource" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -202,14 +202,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\actor\Index.cshtml" />
+    <Content Include="Views\comment\Index.cshtml" />
+    <Content Include="Views\movie\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\actor\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -229,6 +228,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceWCFMovies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{9cee5cb1-0204-4a7c-87cf-d6982f76f598}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
